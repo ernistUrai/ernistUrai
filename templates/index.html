@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+</head>
+<body>
+ <div>
+     <ol>
+         {% for i in post %}
+         <li>
+             <h2>{{i.title}}</h2>
+             <p>{{i.description}}</p>
+             <p align="center"><img src="{{i.image.url}}" alt="" width="950" height="550"></p>
+             <p>{{i.created_date}}</p>
+             <a href="{{i.url}}">Подробнее</a>
+         </li>
+
+         {% endfor %}
+     </ol>
+ </div>
+
+</body>
+</html>
