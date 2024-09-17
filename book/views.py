@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
+from phone.models import Phone
 from . import models
 
 def index(request):
@@ -16,3 +18,5 @@ def hello_world_view(request):
 def post_view(request):
     post = models.Post.objects.all()
     return render(request, 'index.html',{'post':post})
+
+

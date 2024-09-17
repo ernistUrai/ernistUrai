@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PHONE DETAIL</title>
+</head>
+<body>
+<div>
+    <a href="/phone_list"><button>назад</button></a>
+
+</div>
+<center>
+    <h1>{{phone_detail.title}}</h1>
+    <p>{{phone_detail.description}}</p>
+    <img src="{{phone_detail.image.url}}" width="700" height="550">
+    <p>{{phone_detail.price}}$</p>
+    <iframe src="{{phone_detail.video}}" width="850" height="450"> </iframe>
+    <p>{{phone_detail.created_date}}</p>
+</center>
+</body>
+</html>

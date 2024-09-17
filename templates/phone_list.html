@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>PHONE_lIST</title>
+</head>
+
+<body>
+<div>
+    <ul>
+        {% for i in phone_objects %}
+        <li>
+            <h1>{{i.title}}</h1>
+            <img src="{{i.image.url}}" alt="" width="700" height="550">
+            <p>{{i.price}}$</p>
+            <p>{{i.created_date}}</p>
+            <a href="/phone_list/{{i.id}}"><button>подробное</button></a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
