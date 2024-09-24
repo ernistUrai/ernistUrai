@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    background: url(https://i.pinimg.com/originals/4e/fd/fa/4efdfaaae5dfebc3fd5f33aaee9ac4db.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: 0 8%;
+    box-shadow: 0 5px 10px #000;
+}
+
+header .logo {
+    font-size: 20px;
+    font-weight: 900;
+    color: #000;
+    transition: scale(1.2);
+}
+
+header .logo:hover {
+    transform: scale(1.2);
+}
+
+header nav ul li {
+    position: relative;
+    float: left;
+}
+
+header nav ul li a {
+    padding: 15px;
+    color: #000;
+    font-size:  16px;
+    display: block;
+}
+
+header nav ul li a:hover {
+    background: #000;
+    color: #fff;
+}
+
+
+/* Картычка товара */

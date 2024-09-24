@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Наш сайт</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo">MY SITE</a>
+
+  <nav>
+    <ul>
+      <li><a href="/">Главная страница</a></li>
+      <li><a href="/admin/">Панель управления</a></li>
+      <li><a href="/phone_list/">Смартфоны</a></li>
+      <li><a href="/create_phone/">Добавить</a></li>
+      <li><a href="#">Контакты</a></li>
+      <li><a href="#">О нас</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+</body>
+</html>

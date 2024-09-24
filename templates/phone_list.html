@@ -1,23 +1,34 @@
+{% load static  %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>PHONE_lIST</title>
-</head>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
+</head>
 <body>
-<div>
-    <ul>
+{% include "header.html" %}
+
+<div class="container">
+    <h1>Наш каталог продуктов</h1>
+    <div class="grid">
         {% for i in phone_objects %}
-        <li>
-            <h1>{{i.title}}</h1>
-            <img src="{{i.image.url}}" alt="" width="700" height="550">
-            <p>{{i.price}}$</p>
-            <p>{{i.created_date}}</p>
-            <a href="/phone_list/{{i.id}}"><button>подробное</button></a>
-        </li>
+            <div class="product-card">
+                <img src="{{i.image.url}}" alt="П{{i.title}}" class="product-image">
+                <div class="card-content">
+                    <h3>{{i.title}}</h3>
+                    <p>{{phone_detail.description|truncatewords:50}}</p>
+                    <div class="info-price">
+                        <span class="price">${{i.price}}</span>
+                        <a href="/phone_list/{{i.id}}"> <button class="add-to-cart">Подровнее</button></a>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 </div>
+
 </body>
 </html>

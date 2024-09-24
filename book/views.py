@@ -5,7 +5,7 @@ from phone.models import Phone
 from . import models
 
 def index(request):
-    return render(request, 'main/index.html')
+    return render(request, 'main_index.html')
 
 
 def hello_world_view(request):
