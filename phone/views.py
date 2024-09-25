@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Phone
-from phone.forms import PhoneForm
+from django.views.generic import CreateView
+from .models import Phone, CommentPhone
+from phone.forms import PhoneForm, CommentFrom
 from django.http import HttpResponse
 
 
@@ -29,7 +30,7 @@ def create_phone_view(request):
     return render(request, 'create_phone.html', {"form": form})
 
 
-# Обнавление Смартфона
+# Обновление Смартфона
 def update_object_view(request, id):
     phone_object = get_object_or_404(Phone, id=id)
     if request.method == "POST":
@@ -42,3 +43,25 @@ def update_object_view(request, id):
         return render(request, 'update_phone.html', {"form": form,
                                                      "object": phone_object
                                                      })
+
+# удаление смартфона
+def delete_object_view(request, id):
+    phone_object = get_object_or_404(Phone, id=id)
+    phone_object.delete()
+    return HttpResponse("<h2>Смартфон успешно удалена из базы данных</h2>")
+
+
+
+# Оставит Комментарии
+class PhoneCommentView(CreateView):
+    template_name = 'phone_comment.html'
+    form_class = CommentFrom
+    queryset = CommentPhone.objects.all()
+    success_url = '/phone_list/'
+
+    def get_object(self, **kwargs):
+        phone_id = self.kwargs.get("id")
+
+    def form_valid(self, form):
+        print(form.clean)
+        return super(PhoneCommentView, self).form_valid(form=form)

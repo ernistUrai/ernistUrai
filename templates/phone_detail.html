@@ -11,9 +11,6 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
-
-                <a href="/phone_list/{{phone_detail.id}}/update/"><button type="submit">Обновить</button></a>
-
                 <div class="card shadow-sm">
                     <img src="{{phone_detail.image.url}}" class="card-img-top" alt="{{phone_detail.title}}">
                     <div class="card-body">
@@ -26,14 +23,54 @@
                         <hr>
                         <div>
                             <center> <iframe src="{{phone_detail.video}}" width="500" height="600"></iframe></center>
-
-
                         </div>
+                        <div>
+                            <a href="/phone_list/{{phone_detail.id}}/update/"><button type="submit">Обновить смартфон</button></a>
+                            <a href="/phone_list/{{phone_detail.id}}/delete/"><button type="submit">Удалить смартфон</button></a>
+                            <a href="/phone_list/{{phone_detail.id}}/comment/"><button type="submit">Добавить комментарий</button></a>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <table>
+        <caption><b>Комментария</b></caption>
+        <thead>
+            <tr>
+                <th>Текс</th> <th>Рейтинг</th> <th>Дата создания</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            {% for c in phone_detail.comment.all %}
+            <tr>
+                <td>{{c.test}}</td>
+                <td>{{c.rate_starts}}</td>
+                <td>{{c.created_date}}</td>
+            </tr>
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+
+
+
+
+
+    <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form.as_p}}
+        </form>
+{% comment %}
+<a href="/car_list/"><button>на список машин</button></a>
+{% endcomment %}
+
+
 
     <!-- Подвал -->
     <footer class="bg-dark text-white py-3 mt-5">

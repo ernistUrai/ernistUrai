@@ -20,3 +20,24 @@ class Phone(models.Model):
     
     def __str__(self):
         return self.title
+
+
+
+
+
+class CommentPhone(models.Model):
+    RATING = (
+        ("*", "*"),
+        ("**", "**"),
+        ("***", "***"),
+        ("****", "****"),
+        ("*****", "*****"),
+    )
+
+    phone_choice_comment = models.ForeignKey(Phone, on_delete=models.CASCADE, related_name="comment")
+    test = models.TextField()
+    rate_starts = models.CharField(max_length=100, choices=RATING)
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.rate_starts
